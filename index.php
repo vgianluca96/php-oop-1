@@ -3,16 +3,19 @@
 class Movie
 {
     public $title;
-    public $genres = [];
+    public $genres;
     public $poster;
+
+    function __construct($_genres)
+    {
+        $this->genres = $_genres;
+    }
 }
 
 
-$movie1 = new Movie();
+$movie1 = new Movie(['action', 'drama']);
 $movie1->title = 'star wars';
-$movie1->genres = ['action', 'drama'];
 $movie1->poster = 'https://i.ebayimg.com/images/g/tCwAAOSw4IVijPFE/s-l1600.jpg';
-
 
 
 ?>
