@@ -10,9 +10,15 @@ class Movie
     {
         $this->genres = $_genres;
     }
+
+    public function firstLetterCapital()
+    {
+        $this->title = ucwords($this->title);
+    }
 }
 
 include 'db.php';
+
 
 ?>
 
@@ -38,6 +44,7 @@ include 'db.php';
         <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-2">
             <?php
             foreach ($movies as $movie) {
+                $movie->firstLetterCapital();
             ?>
                 <div class="col">
                     <div class="card text-bg-dark">
