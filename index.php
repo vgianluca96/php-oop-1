@@ -11,14 +11,13 @@ class Movie
         $this->genres = $_genres;
     }
 
-    public function firstLetterCapital()
+    public function firstLetterCapital($string)
     {
-        $this->title = ucwords($this->title);
+        return ucwords($string);
     }
 }
 
 include 'db.php';
-
 
 ?>
 
@@ -41,10 +40,10 @@ include 'db.php';
     </div>
 
     <div class="container py-3">
-        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-2">
+        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-6 g-2">
             <?php
             foreach ($movies as $movie) {
-                $movie->firstLetterCapital();
+                $movie->title = $movie->firstLetterCapital($movie->title);
             ?>
                 <div class="col">
                     <div class="card text-bg-dark">
@@ -60,6 +59,7 @@ include 'db.php';
                             <ul>
                                 <?php
                                 foreach ($movie->genres as $genre) {
+                                    $genre = $movie->firstLetterCapital($genre);
                                 ?>
                                     <li>
                                         <?php echo $genre; ?>
