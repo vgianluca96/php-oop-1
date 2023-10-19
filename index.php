@@ -12,11 +12,9 @@ class Movie
     }
 }
 
+include 'objects.php';
 
-$movie1 = new Movie(['action', 'drama']);
-$movie1->title = 'star wars';
-$movie1->poster = 'https://i.ebayimg.com/images/g/tCwAAOSw4IVijPFE/s-l1600.jpg';
-
+var_dump($movies);
 
 ?>
 
@@ -40,32 +38,38 @@ $movie1->poster = 'https://i.ebayimg.com/images/g/tCwAAOSw4IVijPFE/s-l1600.jpg';
 
     <div class="container py-3">
         <div class="row row-cols-5">
-            <div class="col">
-                <div class="card text-bg-dark">
-                    <img src="<?php echo $movie1->poster; ?>" alt="" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <?php
-                            echo $movie1->title;
-                            ?>
-                        </h5>
-                        <p class="card-text">
-                            <strong>Genere:</strong>
-                        <ul>
-                            <?php
-                            foreach ($movie1->genres as $genre) {
-                            ?>
-                                <li>
-                                    <?php echo $genre; ?>
-                                </li>
-                            <?php
-                            }
-                            ?>
-                        </ul>
-                        </p>
+            <?php
+            foreach ($movies as $movie) {
+            ?>
+                <div class="col">
+                    <div class="card text-bg-dark">
+                        <img src="<?php echo $movie->poster; ?>" alt="" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <?php
+                                echo $movie->title;
+                                ?>
+                            </h5>
+                            <p class="card-text">
+                                <strong>Genere:</strong>
+                            <ul>
+                                <?php
+                                foreach ($movie->genres as $genre) {
+                                ?>
+                                    <li>
+                                        <?php echo $genre; ?>
+                                    </li>
+                                <?php
+                                }
+                                ?>
+                            </ul>
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            <?php
+            }
+            ?>
         </div>
     </div>
 
