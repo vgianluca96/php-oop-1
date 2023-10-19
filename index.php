@@ -12,7 +12,7 @@ class Movie
     }
 }
 
-include 'objects.php';
+include 'db.php';
 
 ?>
 
