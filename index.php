@@ -3,14 +3,14 @@
 class Movie
 {
     public $title;
-    public $genre;
+    public $genres = [];
     public $poster;
 }
 
 
 $movie1 = new Movie();
 $movie1->title = 'star wars';
-$movie1->genre = 'action';
+$movie1->genres = ['action', 'drama'];
 $movie1->poster = 'https://i.ebayimg.com/images/g/tCwAAOSw4IVijPFE/s-l1600.jpg';
 
 
@@ -31,8 +31,12 @@ $movie1->poster = 'https://i.ebayimg.com/images/g/tCwAAOSw4IVijPFE/s-l1600.jpg';
 
 <body class="text-bg-light">
 
-    <div class="container py-4">
-        <div class="row row-cols-6">
+    <div class="text-center text-uppercase py-3">
+        <h1>movies</h1>
+    </div>
+
+    <div class="container py-3">
+        <div class="row row-cols-5">
             <div class="col">
                 <div class="card text-bg-dark">
                     <img src="<?php echo $movie1->poster; ?>" alt="" class="card-img-top">
@@ -43,9 +47,18 @@ $movie1->poster = 'https://i.ebayimg.com/images/g/tCwAAOSw4IVijPFE/s-l1600.jpg';
                             ?>
                         </h5>
                         <p class="card-text">
+                            <strong>Genere:</strong>
+                        <ul>
                             <?php
-                            echo $movie1->genre;
+                            foreach ($movie1->genres as $genre) {
                             ?>
+                                <li>
+                                    <?php echo $genre; ?>
+                                </li>
+                            <?php
+                            }
+                            ?>
+                        </ul>
                         </p>
                     </div>
                 </div>
