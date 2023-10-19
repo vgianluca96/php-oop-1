@@ -14,8 +14,6 @@ class Movie
 
 include 'objects.php';
 
-var_dump($movies);
-
 ?>
 
 
@@ -33,11 +31,11 @@ var_dump($movies);
 <body class="text-bg-light">
 
     <div class="text-center text-uppercase py-3">
-        <h1>movies</h1>
+        <h1>star wars movies</h1>
     </div>
 
     <div class="container py-3">
-        <div class="row row-cols-5">
+        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-2">
             <?php
             foreach ($movies as $movie) {
             ?>
